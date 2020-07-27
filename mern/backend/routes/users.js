@@ -7,14 +7,14 @@ router.route('/').get((req,res) => {
     .catch(err => res.status(400).json('Error: ', err));
 });
 
-router.post( '/add' , (req,res)  => {
+router.route('/add').post( (req,res)  => {
     const username =req.body.username;
 
     const newUser = new User({username});
-     console.log("added");
+     console.log("user added");
     newUser.save()
     .then(() => res.json('user added!'))
-    .catch(err => res.status(400).json('Error: rd', err));
+    .catch(err => res.status(400).json('Error: ', err));
 });
 
 module.exports = router;
